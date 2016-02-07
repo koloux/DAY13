@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 17:23:24 by nhuber            #+#    #+#             */
-/*   Updated: 2016/02/02 17:34:11 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/02/07 17:26:09 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ t_btree	*btree_create_node(void *item)
 {
 	t_btree	*leaf;
 
-	if (!(leaf = (t_btree *)malloc(sizeof(t_btree))));
+	if (!(leaf = (t_btree *)malloc(sizeof(t_btree))))
 		return (NULL);
 	leaf->left = NULL;
-	leaf->right NULL;
+	leaf->right = NULL;
 	leaf->item = item;
 	return (leaf);
 }

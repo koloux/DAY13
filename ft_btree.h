@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_apply_prefix.c                               :+:      :+:    :+:   */
+/*   ft_btree.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/02 17:35:14 by nhuber            #+#    #+#             */
-/*   Updated: 2016/02/07 17:37:04 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/02 16:52:05 by nhuber            #+#    #+#             */
+/*   Updated: 2016/02/03 17:56:05 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_btree.h"
+#ifndef FT_BTREE_H
+# define FT_BTREE_H
+# include <stdlib.h>
 
-void	btree_apply_prefix(t_btree *root, void (*applyf)(void *))
+typedef struct		s_btree
 {
-	if (root != NULL)
-	{
-		applyf(root->item);
-		btree_apply_prefix(root->left, applyf);
-		btree_apply_prefix(root->right, applyf);
-	}
-}
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void 		*item;
+}			t_btree;
+
+t_btree	*btree_create_node(void *item);
+
+#endif

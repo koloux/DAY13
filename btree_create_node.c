@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_search_item.c                                :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/03 17:15:37 by nhuber            #+#    #+#             */
-/*   Updated: 2016/02/07 18:59:04 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/02 17:23:24 by nhuber            #+#    #+#             */
+/*   Updated: 2016/02/07 17:26:19 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_btree.h"
 
-void	*btree_search_item(t_btree *root, void *data_ref, int (*cmpf)(void *, void *))
+t_btree	*btree_create_node(void *item)
 {
-	void	*result;
+	t_btree	*leaf;
 
-	result = NULL;
-	if (root == NULL)
+	if (!(leaf = (t_btree *)malloc(sizeof(t_btree))));
 		return (NULL);
-	if (root->left)
-		result = btree_search_item(root->left, data_ref, cmpf);
-	if (cmpf(root->item, data_ref) == 0)
-		return (root->item);
-	if (result == NULL && root->right != NULL)
-		result = btree_search_item(root->right, data_ref, cmpf);
-	return (result);
+	leaf->left = NULL;
+	leaf->right = NULL;
+	leaf->item = item;
+	return (leaf);
 }
