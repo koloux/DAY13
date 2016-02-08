@@ -6,13 +6,14 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 17:15:37 by nhuber            #+#    #+#             */
-/*   Updated: 2016/02/07 18:59:04 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/02/08 12:42:39 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_btree.h"
 
-void	*btree_search_item(t_btree *root, void *data_ref, int (*cmpf)(void *, void *))
+void	*btree_search_item(t_btree *root, void *data_ref,
+								int (*cmpf)(void *, void *))
 {
 	void	*result;
 
